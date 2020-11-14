@@ -1,0 +1,31 @@
+<html>
+<div class="row">
+    <div class="col-text-center">
+        <img src="assets/img/{{ attempts }}.png" class="hangman-img">
+        <h3>Attempts <small>{{ attempts }} / 9</small></h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-text-center">
+        <h1>{{ hiddenWord }}</h1>
+    </div>
+</div>
+<div class="row" *ngIf="winner">
+    <div class="col-text-center">
+        <h1>Congratulations you Won! :D</h1>
+        <h4>( {{ word }} )</h4>
+    </div>
+</div>
+<div class="row" *ngIf="loser">
+    <div class="col-text-center">
+        <h1>Sorry, you Lost :(</h1>
+        <h4>( {{ word }} )</h4>
+    </div>
+</div>
+<div class="row" *ngIf="!winner && !loser">
+    <div class="col-text-center">
+        <button (click)="checkLetter(letter)" *ngFor="let letter of letters" class="button btn-primary">{{ letter }}</button>
+    </div>
+</div>
+
+</html>
